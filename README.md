@@ -18,3 +18,16 @@ mlflow ui --backend-store-uri sqlite:///mlflow.db
 ### Run order
 
 eda -> preprocessing -> classification -> clustring -> clustring_vs_classifcation -> training_optimisation -> train_final_model
+
+## Churn prediction web interface
+
+A Streamlit app lets you enter a customer's data in a form and get back the predicted churn probability.
+
+```bash
+streamlit run app/app.py
+```
+
+Then open the URL shown in the terminal (default http://localhost:8501)
+
+- Features are transformed with the exact preprocessing used to train the model. The fitted preprocessor is auto-built on first run and cached at `data/processed/models/preprocessor.pkl`.
+- Result shows the churn probability (%) and a verdict (likely to stay / high churn risk).
